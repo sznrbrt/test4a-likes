@@ -91,7 +91,7 @@ app.controller('postsCtrl', function($scope, Posts, $state, Users) {
         Posts.getAll()
           .then(res => {
             $scope.posts = res.data;
-            console.log($scope.posts);
+            $scope.creatingPost = false;
           })
       })
   }
@@ -104,7 +104,6 @@ app.controller('postsCtrl', function($scope, Posts, $state, Users) {
         Posts.getAll()
           .then(res => {
             $scope.posts = res.data;
-            console.log($scope.posts);
           })
       })
   }

@@ -5,7 +5,7 @@ var jwt = require('jsonwebtoken');
 var moment = require('moment');
 var bcrypt = require('bcryptjs');
 
-// require('dotenv').config();
+require('dotenv').config();
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
