@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <div class="col-xs-12">
+  <div class="row">
+    <button class="btn-warning" ng-click="logOut()">Log Out</button>
+  </div>
+  </div>
+  <div class="col-xs-12">
+  <div class="row">
+    <button class="btn-success" ng-click="openCreatePost()">Create Post</button>
+    <div class="row createPostBox" ng-if="creatingPost">
+      <form ng-submit='createPost()'>
+        <div class="form-group">
+          <label>Content:</label>
+          <input type="text" class="form-control" required ng-model='post.content'>
+        </div>
+        <button class="btn btn-primary">Create Post</button>
+        <button class="btn btn-primary" ng-click="cancel()">Cancel</button>
+      </form>
+    </div>
+    <div class="post" ng-repeat="post in posts">
+      <hr>
+      <div class="createdBy">createdBy: {{post.createdBy.username}}</div>
+      <div class="createdAt">createdAt: {{post.createdAt}}</div>
+      <div class="content">content: {{post.content}}</div>
+      <div class="likes">
+        <button type="button" class="btn btn-default btn-sm" ng-click="likePost(post._id)">
+          <span class="glyphicon glyphicon-thumbs-up"></span> Like <span class="badge">{{post.likes.length}}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

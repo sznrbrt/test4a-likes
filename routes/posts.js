@@ -8,7 +8,7 @@ var Post = require('../models/post');
 router.get('/', (req, res) => {
   Post.find({}, (err, posts) => {
     res.status(err ? 400 : 200).send(err || posts);
-  });
+  }).populate('createdBy');
 });
 
 router.post('/', (req, res) => {

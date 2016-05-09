@@ -7,7 +7,7 @@ var bcrypt = require('bcryptjs');
 
 var postSchema = new mongoose.Schema({
   content: { type: String, required: true },
-  createdBy: { type: String, required: true },
+  createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   createdAt: { type: String, required: true },
   likes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
 });
@@ -19,8 +19,7 @@ postSchema.statics.createPost = function(postObj, cb) {
     createdAt: moment(),
     likes: []
   })
-
-  post.save(cb);
+  post.save(cb).populate('createdBy');
 }
 
 postSchema.methods.toogleLike = function(userId, cb) {

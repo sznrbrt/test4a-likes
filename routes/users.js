@@ -21,10 +21,10 @@ router.post('/register', (req, res) => {
 
 //   /api/users/login
 router.post('/login', (req, res) => {
-  User.authenticate(req.body, (err, token) => {
+  User.authenticate(req.body, (err, token, userId) => {
     if(err) return res.status(400).send(err);
 
-    res.cookie('accessToken', token).send(token);
+    res.cookie('accessToken', token).send(userId);
   });
 });
 

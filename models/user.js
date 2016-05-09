@@ -75,7 +75,7 @@ userSchema.statics.authenticate = function(userObj, cb) {
 
       var token = dbUser.makeToken();
 
-      cb(null, token);
+      cb(null, token, dbUser._id);
     })
   });
 };

@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('myApp', ['ui.router', 'ui.bootstrap']);
+var app = angular.module('likeApp', ['ui.router', 'ui.bootstrap']);
 
 app.config(function($stateProvider, $urlRouterProvider){
 
@@ -9,6 +9,11 @@ app.config(function($stateProvider, $urlRouterProvider){
       url:'/',
       templateUrl: '/html/home.html',
       controller: 'homeCtrl'
+    })
+    .state('posts', {
+      url:'/posts',
+      templateUrl: '/html/posts.html',
+      controller: 'postsCtrl'
     })
 
   $urlRouterProvider.otherwise('/');
